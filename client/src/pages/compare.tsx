@@ -2,16 +2,23 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { ComparisonResult } from "@/lib/types";
-import { Loader2, AlertTriangle, Search } from "lucide-react";
+import { Loader2, AlertTriangle, Search, ShoppingCart } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export default function Compare() {
   const [searchQuery, setSearchQuery] = useState("");
   const [comparisonResult, setComparisonResult] = useState<ComparisonResult | null>(null);
   const { toast } = useToast();
+  const queryClient = useQueryClient();
+
+  // Get session ID
+  const sessionId = localStorage.getItem('sessionId') || `session-${Date.now()}-${Math.random()}`;
+  if (!localStorage.getItem('sessionId')) {
+    localStorage.setItem('sessionId', sessionId);
+  }
 
   const compareMutation = useMutation({
     mutationFn: async (item: string) => {
@@ -25,6 +32,55 @@ export default function Compare() {
       toast({
         title: "Comparison failed",
         description: "Failed to generate comparison prices. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const addToCartMutation = useMutation({
+    mutationFn: async ({ item, planet, price }: { item: string, planet: string, price: string }) => {
+      // Create a virtual product for the searched item
+      const virtualProduct = {
+        id: `search-${Date.now()}-${Math.random()}`,
+        name: item,
+        price: price,
+        image: planet === "Moon" ? "🌙" : 
+              planet === "Space Station" ? "🛰️" :
+              planet === "Mars" ? "🔴" :
+              planet === "Venus" ? "🟡" :
+              planet === "Mercury" ? "🟤" :
+              planet === "Jupiter" ? "🟠" :
+              planet === "Saturn" ? "🪐" :
+              planet === "Uranus" ? "🩵" :
+              planet === "Neptune" ? "🔵" :
+              planet === "Pluto" ? "🟣" : "🌍",
+        description: `Custom ${item} delivery to ${planet}`,
+        planet: planet,
+        breakdown: {
+          "Base Item Price": `₹${Math.floor(parseInt(price.replace(/[₹,]/g, '')) * 0.1).toLocaleString('en-IN')}`,
+          "Cosmic Delivery": `₹${Math.floor(parseInt(price.replace(/[₹,]/g, '')) * 0.9).toLocaleString('en-IN')}`
+        },
+        isExclusive: 0
+      };
+
+      const response = await apiRequest('POST', '/api/cart', { 
+        productId: virtualProduct.id, 
+        sessionId,
+        virtualProduct
+      });
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Added to cart!",
+        description: "Item added to your cosmic cart.",
+      });
+      queryClient.invalidateQueries({ queryKey: ['/api/cart', sessionId] });
+    },
+    onError: () => {
+      toast({
+        title: "Cart error",
+        description: "Failed to add item to cart. Please try again.",
         variant: "destructive",
       });
     },
@@ -88,9 +144,43 @@ export default function Compare() {
               {Object.entries(comparisonResult.prices).map(([planet, price]) => (
                 <Card key={planet} className="cosmic-bg cosmic-border">
                   <CardContent className="p-4">
-                    <h5 className="text-lg font-semibold mb-2 capitalize">{planet}</h5>
+                    <div className="flex justify-between items-start mb-2">
+                      <h5 className="text-lg font-semibold capitalize">{planet}</h5>
+                      <div className="text-2xl">
+                        {planet === "Moon" ? "🌙" : 
+                         planet === "Space Station" ? "🛰️" :
+                         planet === "Mars" ? "🔴" :
+                         planet === "Venus" ? "🟡" :
+                         planet === "Mercury" ? "🟤" :
+                         planet === "Jupiter" ? "🟠" :
+                         planet === "Saturn" ? "🪐" :
+                         planet === "Uranus" ? "🩵" :
+                         planet === "Neptune" ? "🔵" :
+                         planet === "Pluto" ? "🟣" : "🌍"}
+                      </div>
+                    </div>
                     <p className="text-2xl font-bold text-orange-500 mb-2">{price}</p>
-                    <p className="text-sm text-slate-400">Including all cosmic fees</p>
+                    {planet === "Space Station" && (
+                      <p className="text-xs text-green-400 mb-2">⚡ Special Space Station Discount!</p>
+                    )}
+                    <p className="text-sm text-slate-400 mb-3">Including all cosmic fees</p>
+                    <Button
+                      onClick={() => addToCartMutation.mutate({ 
+                        item: comparisonResult.item, 
+                        planet, 
+                        price 
+                      })}
+                      disabled={addToCartMutation.isPending}
+                      className="w-full bg-gradient-to-r from-green-600 to-blue-500 hover:from-green-600/80 hover:to-blue-500/80 text-white text-sm"
+                      size="sm"
+                    >
+                      {addToCartMutation.isPending ? (
+                        <Loader2 className="w-3 h-3 mr-1 animate-spin" />
+                      ) : (
+                        <ShoppingCart className="w-3 h-3 mr-1" />
+                      )}
+                      Add to Cart
+                    </Button>
                   </CardContent>
                 </Card>
               ))}

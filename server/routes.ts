@@ -94,9 +94,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post("/api/cart", async (req, res) => {
     try {
-      const cartItem = insertCartItemSchema.parse(req.body);
-      const item = await storage.addToCart(cartItem);
-      res.json(item);
+      const { productId, sessionId, virtualProduct } = req.body;
+      
+      // If it's a virtual product from search, store it temporarily
+      if (virtualProduct) {
+        const result = await storage.addVirtualToCart(virtualProduct, sessionId);
+        res.json(result);
+      } else {
+        // Regular product
+        const cartItem = insertCartItemSchema.parse(req.body);
+        const item = await storage.addToCart(cartItem);
+        res.json(item);
+      }
     } catch (error) {
       res.status(400).json({ message: "Invalid cart item data" });
     }

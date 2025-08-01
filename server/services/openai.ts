@@ -59,11 +59,16 @@ function generateFallbackPricing(item: string, planet: string, agency: string): 
   
   // Planet distance multipliers
   const planetMultipliers = {
+    'moon': 50,
+    'space station': 25, // Special discount for space station
     'mars': 150,
     'venus': 200,
+    'mercury': 180,
     'jupiter': 500,
     'saturn': 400,
-    'neptune': 800
+    'uranus': 600,
+    'neptune': 800,
+    'pluto': 1000 // Still a planet in our hearts
   };
   
   // Agency multipliers
@@ -156,11 +161,16 @@ function generateFallbackComparison(item: string): Record<string, string> {
   const basePrice = estimateBasePrice(item);
   
   const planetData = {
+    "Moon": { multiplier: 50, emoji: "🌙" },
+    "Space Station": { multiplier: 25, emoji: "🛰️" }, // Special discount
     "Mars": { multiplier: 150, emoji: "🔴" },
-    "Venus": { multiplier: 200, emoji: "🟡" },  
+    "Venus": { multiplier: 200, emoji: "🟡" },
+    "Mercury": { multiplier: 180, emoji: "🟤" },
     "Jupiter": { multiplier: 500, emoji: "🟠" },
     "Saturn": { multiplier: 400, emoji: "🪐" },
-    "Neptune": { multiplier: 800, emoji: "🔵" }
+    "Uranus": { multiplier: 600, emoji: "🩵" },
+    "Neptune": { multiplier: 800, emoji: "🔵" },
+    "Pluto": { multiplier: 1000, emoji: "🟣" }
   };
   
   const result: Record<string, string> = {};
@@ -183,19 +193,29 @@ export async function generateComparisonPrices(item: string): Promise<Record<str
           content: `Generate realistic comparison prices for delivering an Earth item to different planets. Start with accurate base pricing for the item, then apply planet-specific multipliers based on distance and difficulty.
 
 Price ranges should reflect:
-- Mars: Closest, 100-200x base price
-- Venus: Harsh environment, 150-300x base price  
+- Moon: Close but tricky, 40-60x base price
+- Space Station: Special discount since it's a space station, 20-30x base price
+- Mars: Red planet, 100-200x base price
+- Venus: Harsh environment, 150-300x base price
+- Mercury: Hot and close to sun, 150-250x base price
 - Jupiter: Far gas giant, 400-600x base price
 - Saturn: Ring navigation, 300-500x base price
+- Uranus: Sideways planet, 500-700x base price
 - Neptune: Farthest, 700-1000x base price
+- Pluto: Honorary planet, 800-1200x base price
 
 Use Indian Rupees format. Respond with JSON:
 {
+  "Moon": "₹X,XX,XXX",
+  "Space Station": "₹X,XX,XXX",
   "Mars": "₹X,XX,XX,XXX",
-  "Venus": "₹X,XX,XX,XXX", 
+  "Venus": "₹X,XX,XX,XXX",
+  "Mercury": "₹X,XX,XX,XXX",
   "Jupiter": "₹X,XX,XX,XXX",
   "Saturn": "₹X,XX,XX,XXX",
-  "Neptune": "₹X,XX,XX,XXX"
+  "Uranus": "₹X,XX,XX,XXX",
+  "Neptune": "₹X,XX,XX,XXX",
+  "Pluto": "₹X,XX,XX,XXX"
 }`
         },
         {

@@ -8,6 +8,7 @@ export interface IStorage {
   createProduct(product: InsertProduct): Promise<Product>;
   getCartItems(sessionId: string): Promise<(CartItem & { product: Product })[]>;
   addToCart(cartItem: InsertCartItem): Promise<CartItem>;
+  addVirtualToCart(virtualProduct: Product, sessionId: string): Promise<CartItem>;
   removeFromCart(sessionId: string, productId: string): Promise<void>;
   clearCart(sessionId: string): Promise<void>;
 }
@@ -671,6 +672,121 @@ export class MemStorage implements IStorage {
           "Instruction Manual": "₹500"
         },
         isExclusive: 1
+      },
+      
+      // Moon Exclusives
+      {
+        id: "131",
+        name: "Lunar Dust Snow Globe",
+        price: "₹15,432",
+        image: "🌙",
+        description: "Real lunar dust in a beautiful snow globe. Shake to create your own moon dust storm!",
+        planet: "Moon",
+        breakdown: {
+          "Dust Collection": "₹8,000",
+          "Globe Manufacturing": "₹4,432",
+          "Anti-Static Treatment": "₹2,500",
+          "NASA Approval": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "132",
+        name: "Armstrong's Footprint Cast",
+        price: "₹89,765",
+        image: "👣",
+        description: "Replica of Neil Armstrong's first footprint on the Moon. One small step for man!",
+        planet: "Moon",
+        breakdown: {
+          "Historical Significance": "₹70,000",
+          "Cast Manufacturing": "₹15,765",
+          "Authentication": "₹3,500",
+          "Display Stand": "₹500"
+        },
+        isExclusive: 1
+      },
+      
+      // Space Station Exclusives
+      {
+        id: "133",
+        name: "Zero Gravity Coffee Mug",
+        price: "₹12,345",
+        image: "☕",
+        description: "Coffee mug designed for zero gravity. Your coffee floats perfectly in the mug! DISCOUNT APPLIED!",
+        planet: "Space Station",
+        breakdown: {
+          "Anti-Gravity Design": "₹8,000",
+          "Space Station Discount": "-₹3,000",
+          "Magnetic Base": "₹6,345",
+          "Astronaut Testing": "₹1,000"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "134",
+        name: "Floating Pen Set",
+        price: "₹8,765",
+        image: "✒️",
+        description: "Pens that write in zero gravity! Special space station resident discount included.",
+        planet: "Space Station",
+        breakdown: {
+          "Zero-G Ink Technology": "₹6,000",
+          "Space Station Discount": "-₹2,000",
+          "Magnetic Clip": "₹3,765",
+          "Quality Testing": "₹1,000"
+        },
+        isExclusive: 1
+      },
+      
+      // Mercury Exclusives
+      {
+        id: "135",
+        name: "Solar Flare Sunglasses",
+        price: "₹45,678",
+        image: "🕶️",
+        description: "Ultra-protective sunglasses designed for Mercury's intense solar radiation. SPF 10,000!",
+        planet: "Mercury",
+        breakdown: {
+          "Solar Protection Tech": "₹35,000",
+          "Heat Resistance": "₹8,678",
+          "Thermal Coating": "₹1,500",
+          "Safety Certification": "₹500"
+        },
+        isExclusive: 1
+      },
+      
+      // Uranus Exclusives
+      {
+        id: "136",
+        name: "Sideways Compass",
+        price: "₹34,567",
+        image: "🧭",
+        description: "The only compass that works on a planet that rotates sideways! Navigation made confusing.",
+        planet: "Uranus",
+        breakdown: {
+          "Sideways Calibration": "₹25,000",
+          "Magnetic Confusion Tech": "₹6,567",
+          "Orientation Manual": "₹2,500",
+          "Directional Testing": "₹500"
+        },
+        isExclusive: 1
+      },
+      
+      // Pluto Exclusives  
+      {
+        id: "137",
+        name: "Honorary Planet Certificate",
+        price: "₹99,999",
+        image: "🏆",
+        description: "Official certificate declaring Pluto as still a planet in your heart. Emotional value included!",
+        planet: "Pluto",
+        breakdown: {
+          "Emotional Significance": "₹80,000",
+          "Certificate Printing": "₹15,999",
+          "Frame & Shipping": "₹3,500",
+          "Tears of Joy": "₹500"
+        },
+        isExclusive: 1
       }
     ];
 
@@ -715,6 +831,21 @@ export class MemStorage implements IStorage {
     const item: CartItem = { ...cartItem, id };
     this.cartItems.set(id, item);
     return item;
+  }
+
+  async addVirtualToCart(virtualProduct: Product, sessionId: string): Promise<CartItem> {
+    // First store the virtual product temporarily
+    this.products.set(virtualProduct.id, virtualProduct);
+    
+    // Then add it to cart
+    const cartItemId = randomUUID();
+    const cartItem: CartItem = { 
+      id: cartItemId, 
+      productId: virtualProduct.id, 
+      sessionId 
+    };
+    this.cartItems.set(cartItemId, cartItem);
+    return cartItem;
   }
 
   async removeFromCart(sessionId: string, productId: string): Promise<void> {
