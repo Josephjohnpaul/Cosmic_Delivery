@@ -28,16 +28,16 @@ export class MemStorage implements IStorage {
         id: "1",
         name: "Premium Coffee Beans",
         price: "₹2,47,50,000",
-        image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        image: "☕",
         description: "Freshly roasted coffee beans from Earth, delivered with temperature-controlled cosmic pods.",
         planet: "Mars",
         breakdown: {
           "Base Price": "₹500",
-          "Interplanetary Shipping": "₹89,50,000",
-          "Radiation Insurance": "₹45,00,000",
-          "Oxygen Container": "₹67,00,000",
-          "Cosmic Taxes": "₹33,99,500",
-          "Asteroid Dodge Fee": "₹12,00,000"
+          "Space Bureaucracy Fee": "₹45,00,000",
+          "Alien Customs Bribe": "₹67,00,000",
+          "Rocket Fuel Surcharge": "₹89,50,000",
+          "Cosmic Insurance (Coffee Spillage)": "₹33,99,500",
+          "Asteroid Belt Navigation Tax": "₹12,00,000"
         },
         isExclusive: 0
       },
@@ -45,16 +45,16 @@ export class MemStorage implements IStorage {
         id: "2",
         name: "Gaming Laptop",
         price: "₹47,99,99,999",
-        image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        image: "💻",
         description: "High-performance gaming laptop with anti-cosmic ray shielding and zero-gravity cooling system.",
         planet: "Jupiter",
         breakdown: {
           "Base Price": "₹1,50,000",
-          "Gravitational Shipping": "₹15,67,89,999",
-          "EMP Protection": "₹8,45,00,000",
-          "Pressure Chamber": "₹12,34,60,000",
-          "Jupiter Storm Insurance": "₹9,99,99,000",
-          "Customs & Bribes": "₹1,52,00,000"
+          "Intergalactic WiFi Setup": "₹15,67,89,999",
+          "Anti-Gravity Mouse Pad": "₹8,45,00,000",
+          "Jupiter Storm Coverage": "₹12,34,60,000",
+          "RGB Lighting Permit": "₹9,99,99,000",
+          "Alien Gamer Registration": "₹1,52,00,000"
         },
         isExclusive: 0
       },
@@ -62,15 +62,15 @@ export class MemStorage implements IStorage {
         id: "3",
         name: "Margherita Pizza",
         price: "₹12,34,567",
-        image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        image: "🍕",
         description: "Fresh pizza kept warm during the journey with our patented cosmic oven technology.",
         planet: "Venus",
         breakdown: {
           "Base Price": "₹400",
-          "Thermal Protection": "₹4,56,000",
-          "Speed Delivery": "₹5,67,890",
-          "Acid Rain Cover": "₹1,23,456",
-          "Hot Surface Landing": "₹87,821"
+          "Hot Planet Delivery Surcharge": "₹4,56,000",
+          "Cheese Melting Prevention": "₹5,67,890",
+          "Volcanic Ash Insurance": "₹1,23,456",
+          "Toppings Import Tax": "₹87,821"
         },
         isExclusive: 0
       },
@@ -78,14 +78,14 @@ export class MemStorage implements IStorage {
         id: "4",
         name: "Indoor Plant",
         price: "₹89,76,543",
-        image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        image: "🪴",
         description: "Living plant with artificial atmosphere bubble and UV protection dome.",
         planet: "Saturn",
         breakdown: {
           "Base Price": "₹200",
-          "Life Support System": "₹34,56,000",
-          "Ring Navigation": "₹23,45,678",
-          "Atmospheric Bubble": "₹31,74,665"
+          "Photosynthesis Permit": "₹34,56,000",
+          "Ring-dodging Navigation": "₹23,45,678",
+          "Oxygen Bubble Maintenance": "₹31,74,665"
         },
         isExclusive: 0
       },
@@ -93,15 +93,15 @@ export class MemStorage implements IStorage {
         id: "5",
         name: "Smartphone",
         price: "₹15,67,89,012",
-        image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        image: "📱",
         description: "Latest smartphone with cosmic signal booster and meteor-proof case.",
         planet: "Neptune",
         breakdown: {
           "Base Price": "₹80,000",
-          "Deep Space Shipping": "₹7,89,12,345",
-          "Signal Amplifier": "₹4,56,78,901",
-          "Cosmic Radiation Shield": "₹2,34,56,789",
-          "Ice Moon Landing Fee": "₹87,60,977"
+          "Interplanetary Roaming": "₹7,89,12,345",
+          "Cosmic Signal Amplifier": "₹4,56,78,901",
+          "Frozen Moon Protection": "₹2,34,56,789",
+          "Ice Crack Screen Insurance": "₹87,60,977"
         },
         isExclusive: 0
       },
@@ -109,14 +109,14 @@ export class MemStorage implements IStorage {
         id: "6",
         name: "Chocolate Bar",
         price: "₹3,45,678",
-        image: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        image: "🍫",
         description: "Delicious chocolate bar with anti-melting nano-coating for space travel.",
         planet: "Mars",
         breakdown: {
           "Base Price": "₹50",
-          "Temperature Control": "₹1,23,456",
-          "Space Packaging": "₹87,654",
-          "Martian Customs": "₹1,34,518"
+          "Cocoa Bean Import License": "₹1,23,456",
+          "Anti-Melting Technology": "₹87,654",
+          "Red Planet Landing Fee": "₹1,34,518"
         },
         isExclusive: 0
       },
@@ -124,14 +124,14 @@ export class MemStorage implements IStorage {
         id: "7",
         name: "Running Shoes",
         price: "₹23,45,67,890",
-        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        image: "👟",
         description: "Athletic shoes with anti-gravity soles and magnetic grip technology.",
         planet: "Jupiter",
         breakdown: {
           "Base Price": "₹5,000",
-          "Gravity Adjustment Tech": "₹12,34,56,789",
-          "Magnetic Sole Installation": "₹6,78,90,123",
-          "Zero-G Testing": "₹4,32,15,978"
+          "Anti-Gravity Sole Technology": "₹12,34,56,789",
+          "Magnetic Grip Installation": "₹6,78,90,123",
+          "Jupiter Pressure Testing": "₹4,32,15,978"
         },
         isExclusive: 0
       },
@@ -139,14 +139,74 @@ export class MemStorage implements IStorage {
         id: "8",
         name: "Sunglasses",
         price: "₹8,76,54,321",
-        image: "https://images.unsplash.com/photo-1473167504372-f22d7b62c222?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        image: "🕶️",
         description: "Designer sunglasses with cosmic UV protection and solar flare filters.",
         planet: "Venus",
         breakdown: {
           "Base Price": "₹2,500",
-          "Solar Flare Protection": "₹4,32,10,987",
-          "Cosmic UV Filters": "₹3,21,09,876",
-          "Style Insurance": "₹1,23,30,958"
+          "Solar Flare Filtering": "₹4,32,10,987",
+          "Fashion Police Permit": "₹3,21,09,876",
+          "Cool Factor Insurance": "₹1,23,30,958"
+        },
+        isExclusive: 0
+      },
+      {
+        id: "9",
+        name: "Wireless Headphones",
+        price: "₹8,99,99,999",
+        image: "🎧",
+        description: "Noise-cancelling headphones that can block out rocket engines and alien screams.",
+        planet: "Mars",
+        breakdown: {
+          "Base Price": "₹12,000",
+          "Silence License Fee": "₹3,45,67,890",
+          "Alien Scream Filtering": "₹2,67,89,123",
+          "Rocket Engine Noise Blocker": "₹2,84,42,986"
+        },
+        isExclusive: 0
+      },
+      {
+        id: "10",
+        name: "Electric Toothbrush",
+        price: "₹45,67,890",
+        image: "🪥",
+        description: "Rechargeable toothbrush with cosmic plaque removal and space-grade bristles.",
+        planet: "Saturn",
+        breakdown: {
+          "Base Price": "₹3,500",
+          "Space Dentist Approval": "₹15,64,390",
+          "Cosmic Plaque Research": "₹12,00,000",
+          "Ring Particle Removal": "₹18,00,000"
+        },
+        isExclusive: 0
+      },
+      {
+        id: "11",
+        name: "Yoga Mat",
+        price: "₹23,45,678",
+        image: "🧘",
+        description: "Anti-slip yoga mat designed for zero-gravity meditation sessions.",
+        planet: "Neptune",
+        breakdown: {
+          "Base Price": "₹2,000",
+          "Zero-G Certification": "₹8,43,678",
+          "Meditation License": "₹6,00,000",
+          "Spiritual Alignment Fee": "₹9,00,000"
+        },
+        isExclusive: 0
+      },
+      {
+        id: "12",
+        name: "Water Bottle",
+        price: "₹12,34,567",
+        image: "🍼",
+        description: "Insulated water bottle that prevents water from floating away in zero gravity.",
+        planet: "Venus",
+        breakdown: {
+          "Base Price": "₹800",
+          "Anti-Gravity Liquid Lock": "₹4,33,767",
+          "Heat Resistant Coating": "₹3,00,000",
+          "Hydration Permit": "₹5,00,000"
         },
         isExclusive: 0
       }
