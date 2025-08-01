@@ -2,7 +2,7 @@
 
 ## Overview
 
-Cosmic Delivery is a humorous e-commerce application that simulates selling Earth products to other planets at astronomically high prices. The application features a React frontend with Express backend, showcasing products with detailed cost breakdowns that include ridiculous intergalactic shipping fees, cosmic insurance, and planetary hazards. The system includes regular products, exclusive planet-specific items, AI-powered dynamic pricing, and interactive features like a shopping cart and price comparison tools with add-to-cart functionality for searched items.
+Cosmic Delivery is a humorous e-commerce application that simulates selling Earth products to other planets at astronomically high prices. Originally built with React and Express, the application has been completely converted to a single standalone HTML file with vanilla JavaScript, eliminating all backend dependencies. The application showcases products with detailed cost breakdowns that include ridiculous intergalactic shipping fees, cosmic insurance, and planetary hazards. The system includes regular products, exclusive planet-specific items, client-side pricing generation, and interactive features like a shopping cart and price comparison tools.
 
 ## User Preferences
 
@@ -10,76 +10,56 @@ Preferred communication style: Simple, everyday language.
 
 ## System Architecture
 
-### Frontend Architecture
-- **Framework**: React with TypeScript using Vite as the build tool
-- **Routing**: Wouter for client-side routing with pages for Home, Exclusive products, and Price comparison
-- **State Management**: TanStack Query for server state management and caching
-- **UI Framework**: Shadcn/ui components with Radix UI primitives for consistent design
-- **Styling**: Tailwind CSS with custom cosmic theme variables and dark mode support
-- **Component Structure**: Modular components including ProductCard, ProductModal, CartModal, and SearchSection
-- **Entry Point**: Root-level index.html with comprehensive SEO meta tags and Open Graph properties
+### Complete Frontend-Only Architecture (No Backend)
+- **Framework**: Vanilla JavaScript with HTML5 and CSS3
+- **File Structure**: Single standalone HTML file (`cosmic-delivery.html`) containing all functionality
+- **Routing**: JavaScript-based section switching for Home, Exclusive products, and Price comparison
+- **State Management**: Browser localStorage for cart persistence and session management
+- **UI Design**: Custom CSS with cosmic theme, gradients, and responsive design
+- **Component Structure**: JavaScript functions for modular UI components and interactions
+- **Entry Point**: `cosmic-delivery.html` with comprehensive SEO meta tags and Open Graph properties
+- **Data Storage**: All product data embedded in JavaScript arrays within the HTML file
 
-### Backend Architecture
-- **Runtime**: Node.js with Express.js framework
-- **API Design**: RESTful endpoints for products, cart management, and AI-powered search
-- **Storage**: In-memory storage implementation with interface-based design for easy database integration
-- **Development Server**: Integrated Vite development server with HMR support
-- **Error Handling**: Centralized error handling middleware with structured error responses
+### Eliminated Backend Components
+- **Previous**: Node.js Express server, REST APIs, server-side storage
+- **Current**: All functionality moved to client-side JavaScript
+- **Benefits**: No server dependencies, can run anywhere, simple deployment
 
 ### Data Storage
-- **Current Implementation**: In-memory storage using Maps for products and cart items
-- **Database Ready**: Drizzle ORM configured for PostgreSQL with schema definitions
-- **Schema Design**: Products table with JSONB breakdown field, cart items with session-based tracking
-- **Migration System**: Drizzle Kit for database migrations and schema management
+- **Current Implementation**: Browser localStorage for cart persistence
+- **Product Data**: Static JavaScript arrays embedded in HTML file
+- **Session Management**: Client-side session ID generation and localStorage management
+- **Cart Storage**: JSON serialization in localStorage with automatic persistence
 
-### AI Integration
-- **Service**: OpenAI GPT-4o integration for dynamic pricing generation
-- **Features**: Cosmic price calculation based on item, destination planet, and delivery agency
-- **Price Breakdown**: AI generates humorous but believable cost components with accurate base pricing
+### Client-Side Pricing System
+- **Implementation**: JavaScript algorithms for dynamic pricing generation
+- **Features**: Cosmic price calculation based on item, destination planet, and random delivery agency
+- **Price Breakdown**: Algorithmic generation of humorous but believable cost components with base pricing
 - **Destinations**: 10 destinations including Moon, Space Station (special discount), Mars, Venus, Mercury, Jupiter, Saturn, Uranus, Neptune, and Pluto
-- **Search Integration**: AI-powered search with add-to-cart functionality for any searched item
-- **Fallback System**: Robust fallback pricing when OpenAI quota is exceeded
+- **Search Integration**: Real-time price generation for any searched item with add-to-cart functionality
+- **Multipliers**: Planet-specific multipliers with Space Station getting discount pricing
 
 ### Authentication & Sessions
-- **Session Management**: Client-generated session IDs for cart persistence
-- **No Authentication**: Current implementation uses anonymous sessions
-- **Cart Persistence**: Session-based cart storage without user accounts
+- **Session Management**: Client-side generated session IDs stored in localStorage
+- **No Authentication**: Anonymous sessions with browser-based persistence
+- **Cart Persistence**: Automatic localStorage synchronization without server dependencies
 
 ## External Dependencies
 
-### Core Framework Dependencies
-- **React**: Frontend framework with TypeScript support
-- **Express**: Backend web framework
-- **Vite**: Build tool and development server
-- **Wouter**: Lightweight client-side routing
+### Zero Dependencies Architecture
+- **No Framework Dependencies**: Vanilla HTML, CSS, and JavaScript only
+- **No Build Tools**: Direct browser execution without compilation
+- **No Package Management**: Single file contains all functionality
+- **No Server Dependencies**: Can run from any web server or file system
 
-### Database & ORM
-- **Drizzle ORM**: Type-safe database toolkit
-- **@neondatabase/serverless**: PostgreSQL serverless driver
-- **Drizzle Kit**: Database migration and introspection tool
+### Deployment Options
+- **Static File Hosting**: Any web server, CDN, or file hosting service
+- **Local Development**: Python HTTP server, Node.js serve, or any static server
+- **Browser Compatibility**: Modern browsers with ES6+ support
+- **Mobile Responsive**: CSS Grid and Flexbox for all screen sizes
 
-### UI & Styling
-- **Tailwind CSS**: Utility-first CSS framework
-- **Radix UI**: Unstyled, accessible UI primitives
-- **Shadcn/ui**: Pre-built component library
-- **Lucide React**: Icon library
-
-### State Management & Data Fetching
-- **TanStack Query**: Server state management and caching
-- **React Hook Form**: Form handling with validation
-- **Zod**: Schema validation library
-
-### AI Services
-- **OpenAI**: GPT-4o for dynamic pricing generation
-- **Custom pricing logic**: Handles cosmic delivery calculations
-
-### Development Tools
-- **TypeScript**: Type safety across the application
-- **ESBuild**: Fast JavaScript bundler for production
-- **PostCSS**: CSS processing with Autoprefixer
-- **Replit Integration**: Development environment support
-
-### Third-party Integrations
-- **Unsplash**: Product images via CDN
-- **Custom cosmic theming**: Space-themed color palette and animations
-- **Responsive design**: Mobile-first approach with breakpoint handling
+### Features Maintained
+- **All Original Functionality**: Products, cart, search, price comparison
+- **Data Persistence**: Browser localStorage for cart state
+- **Interactive UI**: Modals, forms, dynamic content generation
+- **Responsive Design**: Mobile-first CSS with cosmic theme

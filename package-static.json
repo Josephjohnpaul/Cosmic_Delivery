@@ -1,0 +1,14 @@
+{
+  "name": "cosmic-delivery-static",
+  "version": "1.0.0",
+  "description": "Cosmic Delivery - Static HTML Version",
+  "main": "cosmic-delivery.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "serve": "npx serve .",
+    "dev": "npx serve . -p 5000"
+  },
+  "keywords": ["cosmic", "delivery", "static", "html", "javascript"],
+  "author": "Cosmic Delivery Team",
+  "license": "MIT"
+}
