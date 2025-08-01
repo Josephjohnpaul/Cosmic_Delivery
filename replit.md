@@ -2,7 +2,7 @@
 
 ## Overview
 
-Cosmic Delivery is a humorous e-commerce application that simulates selling Earth products to other planets at astronomically high prices. The application features a React frontend with Express backend, showcasing products with detailed cost breakdowns that include ridiculous intergalactic shipping fees, cosmic insurance, and planetary hazards. The system includes regular products, exclusive planet-specific items, AI-powered dynamic pricing, and interactive features like a shopping cart and price comparison tools.
+Cosmic Delivery is a humorous e-commerce application that simulates selling Earth products to other planets at astronomically high prices. The application features a React frontend with Express backend, showcasing products with detailed cost breakdowns that include ridiculous intergalactic shipping fees, cosmic insurance, and planetary hazards. The system includes regular products, exclusive planet-specific items, AI-powered dynamic pricing, and interactive features like a shopping cart and price comparison tools with add-to-cart functionality for searched items.
 
 ## User Preferences
 
@@ -17,6 +17,7 @@ Preferred communication style: Simple, everyday language.
 - **UI Framework**: Shadcn/ui components with Radix UI primitives for consistent design
 - **Styling**: Tailwind CSS with custom cosmic theme variables and dark mode support
 - **Component Structure**: Modular components including ProductCard, ProductModal, CartModal, and SearchSection
+- **Entry Point**: Root-level index.html with comprehensive SEO meta tags and Open Graph properties
 
 ### Backend Architecture
 - **Runtime**: Node.js with Express.js framework
@@ -34,8 +35,10 @@ Preferred communication style: Simple, everyday language.
 ### AI Integration
 - **Service**: OpenAI GPT-4o integration for dynamic pricing generation
 - **Features**: Cosmic price calculation based on item, destination planet, and delivery agency
-- **Price Breakdown**: AI generates humorous but believable cost components
-- **Special Handling**: Easter egg functionality for impossible destinations like the Sun
+- **Price Breakdown**: AI generates humorous but believable cost components with accurate base pricing
+- **Destinations**: 10 destinations including Moon, Space Station (special discount), Mars, Venus, Mercury, Jupiter, Saturn, Uranus, Neptune, and Pluto
+- **Search Integration**: AI-powered search with add-to-cart functionality for any searched item
+- **Fallback System**: Robust fallback pricing when OpenAI quota is exceeded
 
 ### Authentication & Sessions
 - **Session Management**: Client-generated session IDs for cart persistence
