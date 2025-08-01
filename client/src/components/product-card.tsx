@@ -15,12 +15,10 @@ export default function ProductCard({ product, onViewDetails, onAddToCart }: Pro
 
   return (
     <Card className="group cosmic-bg cosmic-border transition-all duration-300 cosmic-hover">
-      <div className="relative overflow-hidden rounded-t-lg">
-        <img 
-          src={product.image} 
-          alt={product.name}
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-        />
+      <div className="relative overflow-hidden rounded-t-lg bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center h-48">
+        <div className="text-6xl group-hover:scale-110 transition-transform duration-300">
+          {product.image}
+        </div>
         {isExclusive && (
           <Badge className="absolute top-2 right-2 bg-orange-500 hover:bg-orange-600">
             EXCLUSIVE

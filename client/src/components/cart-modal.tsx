@@ -32,11 +32,11 @@ export default function CartModal({ cartItems, isOpen, onClose, onRemoveItem, on
             <>
               {cartItems.map((item) => (
                 <div key={item.id} className="flex items-center space-x-4 p-4 cosmic-bg rounded-lg cosmic-border">
-                  <img 
-                    src={item.product.image} 
-                    alt={item.product.name}
-                    className="w-16 h-16 object-cover rounded-lg"
-                  />
+                  <div className="w-16 h-16 bg-gradient-to-br from-slate-600 to-slate-700 rounded-lg flex items-center justify-center">
+                    <div className="text-2xl">
+                      {item.product.image}
+                    </div>
+                  </div>
                   <div className="flex-1">
                     <h4 className="font-semibold">{item.product.name}</h4>
                     <p className="text-sm text-slate-400">{item.product.planet}</p>

@@ -213,11 +213,12 @@ export class MemStorage implements IStorage {
     ];
 
     const exclusiveProducts: Product[] = [
+      // Mars Exclusives
       {
         id: "101",
         name: "Martian Rock Candy",
         price: "₹12,345",
-        image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        image: "🍭",
         description: "Sweet crystalline candy made from actual Martian minerals. Tastes like iron with a hint of adventure!",
         planet: "Mars",
         breakdown: {
@@ -230,24 +231,86 @@ export class MemStorage implements IStorage {
       },
       {
         id: "102",
-        name: "Floating Jupiter Balloon",
-        price: "₹45,678",
-        image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-        description: "Helium balloon that perpetually floats in Jupiter's atmosphere. Great for atmospheric parties!",
-        planet: "Jupiter",
+        name: "Red Dust Souvenir Jar",
+        price: "₹9,876",
+        image: "🏺",
+        description: "Authentic Martian red dust in a decorative jar. Perfect for your Earth garden!",
+        planet: "Mars",
         breakdown: {
-          "Gas Extraction": "₹25,000",
-          "Atmospheric Processing": "₹15,000",
-          "Storm Resistance Coating": "₹5,000",
-          "Local Assembly": "₹678"
+          "Dust Collection": "₹6,000",
+          "Quality Testing": "₹2,500",
+          "Jar Manufacturing": "₹1,000",
+          "Martian Export License": "₹376"
         },
         isExclusive: 1
       },
       {
         id: "103",
+        name: "Rust-Flavored Water",
+        price: "₹15,432",
+        image: "🧪",
+        description: "Naturally oxidized water with that authentic Mars taste. Rich in iron!",
+        planet: "Mars",
+        breakdown: {
+          "Water Extraction": "₹10,000",
+          "Rust Flavoring": "₹3,432",
+          "Health Inspection": "₹1,500",
+          "Bottle Deposit": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "104",
+        name: "Mini Dust Storm Generator",
+        price: "₹56,789",
+        image: "🌪️",
+        description: "Create your own mini dust storms at home with this Martian weather device!",
+        planet: "Mars",
+        breakdown: {
+          "Storm Technology": "₹45,000",
+          "Safety Features": "₹8,789",
+          "Weather Permit": "₹2,500",
+          "Assembly Instructions": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "105",
+        name: "Olympus Mons Snow Globe",
+        price: "₹23,456",
+        image: "🏔️",
+        description: "Beautiful snow globe featuring Mars' tallest volcano. Shake for dust storms!",
+        planet: "Mars",
+        breakdown: {
+          "Miniature Volcano": "₹18,000",
+          "Globe Manufacturing": "₹3,456",
+          "Dust Storm Effects": "₹1,500",
+          "Gift Wrapping": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "106",
+        name: "Martian Sunset Paint Set",
+        price: "₹18,765",
+        image: "🎨",
+        description: "Paint set with colors inspired by Mars' famous blue sunsets. Earth artists love it!",
+        planet: "Mars",
+        breakdown: {
+          "Color Extraction": "₹12,000",
+          "Paint Manufacturing": "₹4,765",
+          "Artist License": "₹1,500",
+          "Brush Set": "₹500"
+        },
+        isExclusive: 1
+      },
+      
+      // Venus Exclusives
+      {
+        id: "107",
         name: "Venus Heat Pack",
         price: "₹23,456",
-        image: "https://images.unsplash.com/photo-1574263867128-a3d5c1b1debc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        image: "🔥",
         description: "Portable heating device powered by Venus's natural volcanic energy. Stays warm for 500 Earth years!",
         planet: "Venus",
         breakdown: {
@@ -259,10 +322,179 @@ export class MemStorage implements IStorage {
         isExclusive: 1
       },
       {
-        id: "104",
+        id: "108",
+        name: "Acid Rain Umbrella",
+        price: "₹34,567",
+        image: "☂️",
+        description: "Specially designed umbrella that can withstand Venus's corrosive acid rain. Fashion meets function!",
+        planet: "Venus",
+        breakdown: {
+          "Acid-Proof Material": "₹25,000",
+          "Umbrella Assembly": "₹6,567",
+          "Corrosion Testing": "₹2,500",
+          "Style Consulting": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "109",
+        name: "Sulfuric Cloud Perfume",
+        price: "₹45,678",
+        image: "🌫️",
+        description: "Eau de Venus - a unique fragrance capturing the essence of sulfuric clouds. Very exclusive!",
+        planet: "Venus",
+        breakdown: {
+          "Cloud Essence Extraction": "₹35,000",
+          "Perfume Manufacturing": "₹7,678",
+          "Smell Testing": "₹2,500",
+          "Fancy Bottle": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "110",
+        name: "Pressure Cooker (Venus Edition)",
+        price: "₹29,876",
+        image: "🍲",
+        description: "Cook at Venus atmospheric pressure! Your food will be ready in negative time!",
+        planet: "Venus",
+        breakdown: {
+          "Pressure Technology": "₹22,000",
+          "Safety Features": "₹5,876",
+          "Recipe Book": "₹1,500",
+          "Warranty": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "111",
+        name: "Greenhouse Gas Sampler",
+        price: "₹37,654",
+        image: "💨",
+        description: "Collect and study Venus's famous greenhouse gases. Educational and terrifying!",
+        planet: "Venus",
+        breakdown: {
+          "Gas Collection Kit": "₹28,000",
+          "Analysis Tools": "₹6,654",
+          "Safety Equipment": "₹2,500",
+          "Instructions Manual": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "112",
+        name: "Lava Lamp (Real Lava)",
+        price: "₹52,345",
+        image: "🌋",
+        description: "Authentic lava lamp made with real Venusian lava. Warning: Do not touch!",
+        planet: "Venus",
+        breakdown: {
+          "Lava Collection": "₹40,000",
+          "Lamp Assembly": "₹8,345",
+          "Safety Containment": "₹3,500",
+          "Warning Labels": "₹500"
+        },
+        isExclusive: 1
+      },
+      
+      // Jupiter Exclusives
+      {
+        id: "113",
+        name: "Floating Jupiter Balloon",
+        price: "₹45,678",
+        image: "🎈",
+        description: "Helium balloon that perpetually floats in Jupiter's atmosphere. Great for atmospheric parties!",
+        planet: "Jupiter",
+        breakdown: {
+          "Gas Extraction": "₹25,000",
+          "Atmospheric Processing": "₹15,000",
+          "Storm Resistance Coating": "₹5,000",
+          "Local Assembly": "₹678"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "114",
+        name: "Great Red Spot Stress Ball",
+        price: "₹33,456",
+        image: "🔴",
+        description: "Squeeze away your stress with this replica of Jupiter's famous storm. It's been raging for centuries!",
+        planet: "Jupiter",
+        breakdown: {
+          "Storm Replication": "₹25,000",
+          "Stress Ball Material": "₹5,456",
+          "Rage Testing": "₹2,500",
+          "Packaging": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "115",
+        name: "Hurricane Wind Chimes",
+        price: "₹28,765",
+        image: "🎐",
+        description: "Wind chimes that recreate the soothing sounds of Jupiter's 400mph winds. Very relaxing!",
+        planet: "Jupiter",
+        breakdown: {
+          "Wind Sound Recording": "₹20,000",
+          "Chime Manufacturing": "₹6,765",
+          "Sound Quality Testing": "₹1,500",
+          "Meditation Guide": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "116",
+        name: "Gas Giant Inhaler",
+        price: "₹67,890",
+        image: "💨",
+        description: "Breathe in the atmosphere of Jupiter! Warning: Not actually breathable.",
+        planet: "Jupiter",
+        breakdown: {
+          "Atmosphere Compression": "₹50,000",
+          "Inhaler Device": "₹12,890",
+          "Safety Warnings": "₹4,500",
+          "Medical Disclaimer": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "117",
+        name: "Magnetic Field Generator",
+        price: "₹89,123",
+        image: "🧲",
+        description: "Mini magnetic field generator based on Jupiter's powerful magnetosphere. Attracts everything!",
+        planet: "Jupiter",
+        breakdown: {
+          "Magnetic Technology": "₹70,000",
+          "Field Generator": "₹14,123",
+          "Power Source": "₹4,500",
+          "Safety Manual": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "118",
+        name: "Moon Collection Set",
+        price: "₹76,543",
+        image: "🌕",
+        description: "Miniature replicas of Jupiter's 79 moons. Collect them all! (Some assembly required)",
+        planet: "Jupiter",
+        breakdown: {
+          "79 Mini Moons": "₹60,000",
+          "Display Case": "₹12,543",
+          "Assembly Kit": "₹3,500",
+          "Instruction Book": "₹500"
+        },
+        isExclusive: 1
+      },
+      
+      // Saturn Exclusives
+      {
+        id: "119",
         name: "Saturn Ring Fragment",
         price: "₹67,890",
-        image: "https://images.unsplash.com/photo-1567473030492-533b30c5494c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        image: "💍",
         description: "Authentic piece of Saturn's rings encased in a display dome. A true cosmic collector's item!",
         planet: "Saturn",
         breakdown: {
@@ -274,10 +506,87 @@ export class MemStorage implements IStorage {
         isExclusive: 1
       },
       {
-        id: "105",
+        id: "120",
+        name: "Hexagon Puzzle Box",
+        price: "₹43,210",
+        image: "🔷",
+        description: "Puzzle box inspired by Saturn's mysterious hexagonal polar storm. Can you solve it?",
+        planet: "Saturn",
+        breakdown: {
+          "Hexagon Engineering": "₹32,000",
+          "Puzzle Mechanics": "₹8,210",
+          "Difficulty Testing": "₹2,500",
+          "Solution Guide": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "121",
+        name: "Low Density Foam",
+        price: "₹23,456",
+        image: "🟡",
+        description: "Foam so light it would float on water, just like Saturn! Perfect for space beds.",
+        planet: "Saturn",
+        breakdown: {
+          "Density Calculations": "₹15,000",
+          "Foam Manufacturing": "₹6,456",
+          "Flotation Testing": "₹1,500",
+          "Comfort Rating": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "122",
+        name: "Titan Methane Candle",
+        price: "₹34,567",
+        image: "🕯️",
+        description: "Scented candle made from Titan's methane lakes. Smells like... well, methane.",
+        planet: "Saturn",
+        breakdown: {
+          "Methane Extraction": "₹25,000",
+          "Candle Making": "₹6,567",
+          "Scent Development": "₹2,500",
+          "Warning Labels": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "123",
+        name: "Ring Hula Hoop Set",
+        price: "₹56,789",
+        image: "⭕",
+        description: "Multiple hula hoops to recreate Saturn's ring system around your waist. Exercise in space style!",
+        planet: "Saturn",
+        breakdown: {
+          "Multi-Ring Design": "₹42,000",
+          "Space-Grade Material": "₹10,789",
+          "Orbital Mechanics": "₹3,500",
+          "Fitness Guide": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "124",
+        name: "Shepherd Moon Pet",
+        price: "₹45,678",
+        image: "🐕",
+        description: "Virtual pet that keeps your ring particles in line, just like Saturn's shepherd moons!",
+        planet: "Saturn",
+        breakdown: {
+          "AI Programming": "₹35,000",
+          "Virtual Pet Device": "₹7,678",
+          "Shepherding Training": "₹2,500",
+          "Digital Treats": "₹500"
+        },
+        isExclusive: 1
+      },
+      
+      // Neptune Exclusives
+      {
+        id: "125",
         name: "Neptune Ice Cube Tray",
         price: "₹34,567",
-        image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        image: "🧊",
         description: "Ice cube tray that creates perfect cubes using Neptune's frozen methane. Never melts!",
         planet: "Neptune",
         breakdown: {
@@ -289,17 +598,77 @@ export class MemStorage implements IStorage {
         isExclusive: 1
       },
       {
-        id: "106",
-        name: "Cosmic Dust Jar",
-        price: "₹9,876",
-        image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-        description: "Jar filled with genuine cosmic dust from the outer reaches of the solar system. Sparkles beautifully!",
-        planet: "Mars",
+        id: "126",
+        name: "Diamond Rain Collector",
+        price: "₹89,123",
+        image: "💎",
+        description: "Collect actual diamond rain from Neptune's atmosphere! Results may vary.",
+        planet: "Neptune",
         breakdown: {
-          "Space Dust Collection": "₹6,000",
-          "Purification Process": "₹2,500",
-          "Sparkle Enhancement": "₹1,000",
-          "Sealing & Packaging": "₹376"
+          "Rain Collection System": "₹70,000",
+          "Diamond Processing": "₹15,123",
+          "Quality Assurance": "₹3,500",
+          "Gemologist Certificate": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "127",
+        name: "Supersonic Wind Bottle",
+        price: "₹76,543",
+        image: "🌪️",
+        description: "Bottled winds from Neptune's supersonic storms. Fastest winds in the solar system!",
+        planet: "Neptune",
+        breakdown: {
+          "Wind Capture": "₹60,000",
+          "Pressure Bottling": "₹12,543",
+          "Speed Certification": "₹3,500",
+          "Caution Labels": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "128",
+        name: "Deep Blue Paint",
+        price: "₹23,456",
+        image: "🎨",
+        description: "Paint that captures Neptune's beautiful deep blue color. Perfect for ocean-themed rooms!",
+        planet: "Neptune",
+        breakdown: {
+          "Color Analysis": "₹15,000",
+          "Paint Manufacturing": "₹6,456",
+          "Blue Certification": "₹1,500",
+          "Artist Approval": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "129",
+        name: "Triton Geyser Water Gun",
+        price: "₹45,678",
+        image: "🔫",
+        description: "Water gun that shoots with the pressure of Triton's nitrogen geysers. Super soaker 3000!",
+        planet: "Neptune",
+        breakdown: {
+          "Geyser Technology": "₹35,000",
+          "Water Gun Assembly": "₹7,678",
+          "Pressure Testing": "₹2,500",
+          "Safety Features": "₹500"
+        },
+        isExclusive: 1
+      },
+      {
+        id: "130",
+        name: "Retrograde Orbit Spinner",
+        price: "₹67,890",
+        image: "🔄",
+        description: "Fidget spinner that rotates backwards like Triton's orbit. Confuses everyone!",
+        planet: "Neptune",
+        breakdown: {
+          "Reverse Engineering": "₹50,000",
+          "Spinner Manufacturing": "₹12,890",
+          "Confusion Testing": "₹4,500",
+          "Instruction Manual": "₹500"
         },
         isExclusive: 1
       }

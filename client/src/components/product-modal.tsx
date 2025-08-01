@@ -25,11 +25,11 @@ export default function ProductModal({ product, isOpen, onClose, onAddToCart }: 
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <img 
-              src={product.image} 
-              alt={product.name}
-              className="w-full h-64 object-cover rounded-lg mb-4"
-            />
+            <div className="w-full h-64 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg mb-4 flex items-center justify-center">
+              <div className="text-8xl">
+                {product.image}
+              </div>
+            </div>
             <p className="text-slate-300">{product.description}</p>
           </div>
           

@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { ComparisonResult } from "@/lib/types";
-import { Loader2, AlertTriangle } from "lucide-react";
+import { Loader2, AlertTriangle, Search } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export default function Compare() {
-  const [selectedItem, setSelectedItem] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [comparisonResult, setComparisonResult] = useState<ComparisonResult | null>(null);
   const { toast } = useToast();
 
@@ -31,15 +31,15 @@ export default function Compare() {
   });
 
   const handleCompare = () => {
-    if (!selectedItem) {
+    if (!searchQuery.trim()) {
       toast({
-        title: "No item selected",
-        description: "Please select an item to compare!",
+        title: "No item entered",
+        description: "Please enter an item to compare!",
         variant: "destructive",
       });
       return;
     }
-    compareMutation.mutate(selectedItem);
+    compareMutation.mutate(searchQuery.trim());
   };
 
   return (
@@ -53,21 +53,13 @@ export default function Compare() {
         <Card className="cosmic-bg cosmic-border mb-8">
           <CardContent className="p-6">
             <div className="space-y-4">
-              <Select value={selectedItem} onValueChange={setSelectedItem}>
-                <SelectTrigger className="cosmic-bg cosmic-border focus:border-cyan-400">
-                  <SelectValue placeholder="Select item to compare" />
-                </SelectTrigger>
-                <SelectContent className="cosmic-bg cosmic-border">
-                  <SelectItem value="coffee">Premium Coffee Beans</SelectItem>
-                  <SelectItem value="laptop">Gaming Laptop</SelectItem>
-                  <SelectItem value="pizza">Margherita Pizza</SelectItem>
-                  <SelectItem value="plant">Indoor Plant</SelectItem>
-                  <SelectItem value="smartphone">Smartphone</SelectItem>
-                  <SelectItem value="chocolate">Chocolate Bar</SelectItem>
-                  <SelectItem value="shoes">Running Shoes</SelectItem>
-                  <SelectItem value="sunglasses">Sunglasses</SelectItem>
-                </SelectContent>
-              </Select>
+              <Input
+                placeholder="Enter any Earth item to compare prices across planets..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="cosmic-bg cosmic-border focus:border-cyan-400"
+                onKeyPress={(e) => e.key === 'Enter' && handleCompare()}
+              />
               
               <Button
                 onClick={handleCompare}
@@ -77,7 +69,10 @@ export default function Compare() {
                 {compareMutation.isPending ? (
                   <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                 ) : (
-                  "Compare Prices Across Planets"
+                  <>
+                    <Search className="w-4 h-4 mr-2" />
+                    Compare Prices Across Planets
+                  </>
                 )}
               </Button>
             </div>
